@@ -21,6 +21,7 @@ const sess = {
     store: new SequelizeStore({
         db: sequelize
     })
+    //express
 };
 app.use(session(sess));
 app.use(express.json());
@@ -30,5 +31,5 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.use(routes);
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
+    app.listen(PORT, () => console.log('successfully connect to ' + PORT));
 });
