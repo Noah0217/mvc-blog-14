@@ -1,39 +1,34 @@
 //dependencies
 const express = require('express');
-const fs = require('fs');
+const routes = require('./controllers');
 const path = require('path');
-const notes = require('./db/db.json'); 
+const exphbs = require('express-handlebars');
+const session = require('express-session');
+const sequelize = require('./config/connection');
+const hbs = exphbs.create({ helpers });
 
-//path
-const mainPath = path.join(__dirname, './public') 
-const db = path.join(__dirname, "./db") 
-
-//server dependencies & port to live server
+//server connection
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-//middleware paths for api https://stackoverflow.com/questions/11321635/nodejs-express-what-is-app-use
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+// express-session middleware
+const sess = {
+    secret: 'Super secret secret',
+    cookie: {},
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: sequelize
+    })
+};
+app.use(session(sess));
 app.use(express.json());
-
-//route to html notes
-app.get('/notes', function(req, res) {
-    res.sendFile(path.join(mainPath, 'notes.html'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+app.use(routes);
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log('Now listening'));
 });
-app.get('/api/notes', function(req, res) {
-    res.sendFile(path.join(db, 'db.json'))
-    return res.body
-});
-app.post('/api/notes', function(req, res) {
-    console.log("post route hit")
-    res.sendFile(path.join(db, 'db.json'))
-    return res.body
-});
-app.get("*", function(req, res) {
-    res.sendFile(path.join(mainPath, 'index.html'));
-});
-
-//successfully connected to port
-app.listen(PORT, () => 
-console.log(`successfully connected to http://localhost:${PORT}`)); //https://stackoverflow.com/questions/37929173/significance-of-port-3000-in-express-apps
