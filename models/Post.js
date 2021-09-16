@@ -12,4 +12,9 @@ Post.init(
       autoIncrement: true,
     },
     
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
     
