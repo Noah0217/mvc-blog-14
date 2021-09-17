@@ -14,7 +14,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // express-session middleware
 const sess = {
-    secret: 'Super secret secret',
+    secret: 'secret',
     cookie: {},
     resave: false,
     saveUninitialized: true,
@@ -30,6 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.use(routes);
+
+//server connection
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('successfully connect to ' + PORT));
+    app.listen(PORT, () => console.log('Successfully connected to ' + PORT));
 });
