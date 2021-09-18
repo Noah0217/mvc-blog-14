@@ -1,6 +1,6 @@
 //dependencies
 const express = require('express');
-const routes = require('./config/connection');
+const routes = require('./controllers');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
