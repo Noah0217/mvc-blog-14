@@ -1,5 +1,7 @@
 const { Post } = require('../models');
 
+
+//post seeds
 const postData = [
     {
         title: "Lorem ipsum dolor sit amet",
