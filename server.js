@@ -22,7 +22,8 @@ const sess = {
     store: new SequelizeStore({
         db: sequelize
     })
-    //express
+    
+//express
 };
 app.use(session(sess));
 app.use(express.json());
@@ -31,6 +32,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.use(routes);
+
+
+
+
 
 //server connection
 sequelize.sync({ force: false }).then(() => {
