@@ -1,19 +1,14 @@
-//dependency
+//dependencies for required packages/routes
 const router = require('express').Router();
-
-//routes
 const apiRoutes = require('./api');
 const homeRoutes = require('./home-routes.js');
 const dashboardRoutes = require('./dashboard-routes.js');
 
-//middleware for routes
+//routes
 router.use('/api', apiRoutes);
 router.use('/', homeRoutes);
 router.use('/dashboard', dashboardRoutes);
-
-//404 error
 router.use((req, res) => {
-  res.status(404).end();
+    res.status(404).end();
 });
-
 module.exports = router;
