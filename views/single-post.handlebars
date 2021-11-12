@@ -1,7 +1,5 @@
 {{> post-info post}}
-
 {{#if loggedIn}}
-
 <div class="card">
     <h3 class="card-header"></h3>
     <form class="card-body comment-form" id="comment-form">
@@ -10,13 +8,10 @@
         <button type="submit" class="btn">Submit</button>
     </form>
 </div>
-
 {{/if}}
-
 {{> comments post.comments}}
+{{#if loggedIn}}
 
-{{#if loggedIn
 
 <script src="/public/javascript/comment.js"></script>
-
 {{/if}}

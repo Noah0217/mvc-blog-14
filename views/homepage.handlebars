@@ -1,3 +1,5 @@
-{{#each posts as |aPost| }}
-{{> post aPost}}
-{{/each}}
+<article class="post">
+    {{#each posts as |post| }}
+        {{> post-info post}}
+    {{/each}}
+</article>
