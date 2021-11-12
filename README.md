@@ -9,6 +9,7 @@
 - MySQL WorkBench
 - Express
 - JavaScript
+- HandleBars
 - Node.Js
 - MySQL
 
