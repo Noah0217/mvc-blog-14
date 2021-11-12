@@ -16,6 +16,6 @@
  
 * Install required dependencies
   * ```npm i```
-* Run ```mysql -u root -p```
 * run ```npm run seed``` to set seeds in db
 * run ```npm start``` to connect to server & db
+* go to http://localhost:3001/ to view page
