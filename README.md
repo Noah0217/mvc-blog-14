@@ -17,5 +17,5 @@
 * Install required dependencies
   * ```npm i```
 * Run ```mysql -u root -p```
-* run ```npm seed``` to set seeds in db
+* run ```npm run seed``` to set seeds in db
 * run ```npm start``` to connect to server & db
