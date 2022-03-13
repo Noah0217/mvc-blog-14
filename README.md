@@ -1,6 +1,6 @@
 # MVC Blog
 
-<h2>Description<br><h4>A blog application that allows the user to create, update, and delete post real time. Also keeps are your blog data secured with a login you can create.
+<h2>Description<br><h4>A blog application that allows the user to create, update, and delete post real time. Also keeps all your blog data secured with a login you can create.
   
 ## Deployed Application
 ### https://mvc-tech-blog-noah.herokuapp.com/
