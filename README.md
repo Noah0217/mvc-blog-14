@@ -13,7 +13,7 @@
 - Express
 - JavaScript
 - HandleBars
-- Node.Js
+- Node.js
 - MySQL
 
 <h3 align="left">Installation</h3>
