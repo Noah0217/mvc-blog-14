@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # MVC Blog
 
 <h2>Description<br><h4>A blog application that allows the user to create, update, and delete post real time. Also keeps all your blog data secured with a login profile you can create.
